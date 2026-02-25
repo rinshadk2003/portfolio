@@ -53,12 +53,42 @@ class ContactSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 48),
-          ElevatedButton(
-            onPressed: () => _launchUrl("mailto:${PortfolioData.email}"),
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 20),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF22C55E), // primary green
+                  Color(0xFF4ADE80), // light green
+                ],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF22C55E).withOpacity(0.45),
+                  blurRadius: 18,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 6),
+                ),
+              ],
             ),
-            child: const Text("Say Hello"),
+            child: ElevatedButton(
+              onPressed: () => _launchUrl("mailto:${PortfolioData.email}"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                "Say Hello",
+                style: TextStyle(
+                  color: Color(0xFF07130D), // dark text for contrast
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: 100),
 

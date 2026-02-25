@@ -3,63 +3,60 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData get darkTheme {
+    const primaryGreen = Color(0xFF22C55E); // Green 500
+    const lightGreen = Color(0xFF4ADE80);   // Accent
+    const bg = Color(0xFF07130D);           // Deep green bg
+    const surface = Color(0xFF0F1F17);      // Card surface
+    const textMuted = Color(0xFF9CA3AF);    // Muted text
+
     return ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: const Color(0xFF0F172A), // Slate 900
-      primaryColor: const Color(0xFF38BDF8), // Sky 400
+      scaffoldBackgroundColor: bg,
+      primaryColor: primaryGreen,
+
       colorScheme: const ColorScheme.dark(
-        primary: Color(0xFF38BDF8),
-        secondary: Color(0xFF818CF8), // Indigo 400
-        surface: Color(0xFF1E293B), // Slate 800
+        primary: primaryGreen,
+        secondary: lightGreen,
+        surface: surface,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme)
-          .copyWith(
-            displayLarge: GoogleFonts.outfit(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-            displayMedium: GoogleFonts.outfit(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-            displaySmall: GoogleFonts.outfit(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-            headlineLarge: GoogleFonts.outfit(
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
-            headlineMedium: GoogleFonts.outfit(
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
-            titleLarge: GoogleFonts.inter(
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
-            bodyLarge: GoogleFonts.inter(
-              color: const Color(0xFF94A3B8),
-            ), // Slate 400
-            bodyMedium: GoogleFonts.inter(color: const Color(0xFF94A3B8)),
-          ),
+
+      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).copyWith(
+        displayLarge: GoogleFonts.outfit(fontWeight: FontWeight.bold, color: Colors.white),
+        displayMedium: GoogleFonts.outfit(fontWeight: FontWeight.bold, color: Colors.white),
+        displaySmall: GoogleFonts.outfit(fontWeight: FontWeight.bold, color: Colors.white),
+
+        headlineLarge: GoogleFonts.outfit(fontWeight: FontWeight.w700, color: Colors.white),
+        headlineMedium: GoogleFonts.outfit(fontWeight: FontWeight.w600, color: Colors.white),
+
+        titleLarge: GoogleFonts.inter(fontWeight: FontWeight.w600, color: Colors.white),
+
+        bodyLarge: GoogleFonts.inter(color: textMuted),
+        bodyMedium: GoogleFonts.inter(color: textMuted),
+      ),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF38BDF8),
-          foregroundColor: const Color(0xFF0F172A),
+          backgroundColor: primaryGreen,
+          foregroundColor: bg,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w600),
         ),
       ),
+
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: const Color(0xFF38BDF8),
-          side: const BorderSide(color: Color(0xFF38BDF8)),
+          foregroundColor: primaryGreen,
+          side: const BorderSide(color: primaryGreen),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w600),
         ),
+      ),
+
+      appBarTheme: const AppBarTheme(
+        backgroundColor: surface,
+        elevation: 0,
       ),
     );
   }
